@@ -1,0 +1,36 @@
+package Test;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+import Page.Registration;
+
+
+
+
+public class Testebay {
+	WebDriver driver;
+	@BeforeTest
+	public void setup()
+	{
+		driver=new ChromeDriver();
+		driver.get("https://signup.ebay.com
+}
+	@Test
+	public void test1() throws InterruptedException
+	{
+		Thread.sleep(6000);
+	Registration regpage=new Registration(driver);
+
+	regpage.clickrpersonal();
+	regpage.enterName("Haripriya");
+	regpage.enterName1("Das");
+	regpage.enterEmail("haripriyadas.14@gmail.com");
+ 	regpage.clickSubmitButton();
+ 		
+	}
+	
+	
+}

@@ -1,0 +1,37 @@
+package Test;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+import Page.Itempage;
+import Page.Search;
+
+
+public class Testebay2 {
+		WebDriver driver;
+		@BeforeTest
+		public void setup()
+		{
+			driver=new ChromeDriver();
+			driver.get("https://www.ebay.com/");
+			   
+
+	
+	} 
+	@Test	
+	public void test2() throws InterruptedException
+	{
+		Thread.sleep(5000);
+		Search srchpage =new Search(driver);
+		srchpage.enterKeyword("i phone 15 pro max unlocked");
+		srchpage.clickSearch();
+		srchpage.searchResult();
+		Thread.sleep(3000);
+	    
+		
+		
+	  
+}
+}
