@@ -1,0 +1,61 @@
+package Page;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class Registration {
+WebDriver driver;
+
+@FindBy(id="personalaccount-radio")
+WebElement personal;
+ 
+@FindBy(id="firstname")
+WebElement firstname;
+
+@FindBy(id="lastname")
+WebElement lastname;
+
+@FindBy(id="Email")
+WebElement email;
+
+@FindBy(id="password")
+WebElement pswd;
+
+
+@FindBy(id="EMAIL_REG_FORM_SUBMIT")
+WebElement submit;
+
+public Registration(WebDriver driver)
+{
+	this.driver =driver;
+	PageFactory.initElements(driver, this);
+
+}
+
+
+public void clickrpersonal() {
+	personal.click();
+}
+public void enterName(String fname) {
+    firstname.sendKeys(fname);
+}
+
+public void enterName1(String lname) {
+    lastname.sendKeys(lname);
+} 
+
+public void enterEmail(String emailid) {
+    email.sendKeys(emailid);
+}
+
+public void enterPassword(String Password) {
+    pswd.sendKeys(Password);
+}
+
+public void clickSubmitButton() {
+	submit.click();
+}
+}
+

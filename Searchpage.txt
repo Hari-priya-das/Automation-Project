@@ -1,0 +1,50 @@
+package Page;
+
+import java.time.Duration;
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class Search {
+	WebDriver driver;
+	WebDriverWait wait;
+
+	@FindBy(id= "gh-ac") 
+	WebElement searchbox;
+
+	@FindBy(id = "gh-btn")
+	WebElement searchbutton;
+	
+	@FindBy(id = "atcRedesignId_btn") 
+	WebElement resultitem;
+	
+	public Search(WebDriver driver) {
+		this.driver =driver;
+		PageFactory.initElements(driver, this);
+		this.wait = new WebDriverWait(driver,Duration.ofSeconds(20));
+	}
+	public void enterKeyword(String keyword) {
+	    searchbox.sendKeys(keyword);
+	}
+	    public void clickSearch() {
+	        searchbutton.click();
+	    }
+	    public void searchResult() {
+	    	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+	    	 List<WebElement> items = wait.until(ExpectedConditions.visibilityOfAllElements(resultitem));
+	    	  if (items.size() > 0) {
+	              items.get(0).click();
+	          } else {
+	              System.out.println("No items found in search results.");
+	          }
+	  
+	   
+}
+} 
